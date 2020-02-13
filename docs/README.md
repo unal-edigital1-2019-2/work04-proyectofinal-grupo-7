@@ -26,34 +26,6 @@ Mediante la siguiente lógica se obtuvo DP_RAM_addr_out, teniendo en cuenta la p
 
 ![DIAGRAMA](./figs/LOGPIXPAN.png)
 
-### Implementación 
-
-Al culminar los hitos anteriores deben:
-
-1. Crear el archivo UCF.
-
-para la implementacion del archivo UCF se tuvo encuenta  las variables declaras para entraada y salida en el test_cam.v tales como: la señales del reloj clk y rst. se define CAM_PCLK como señal de entrada, se activa los puertos VGA, y las entradas de la camara en los  puertos pmode Header de la FPGA 
-
-
-
-Se declararan las salidas del puerto VGA: los puertos para el pixel; que son 12 debido a que la pantalla recibe formato RGB 444; otro puerto para VGA_Hsync_n y otro para VGA_Vsync_n. 
-
-2. Realizar el test de la pantalla. Programar la FPGA con el bitstream del proyecto y no conectar la cámara. ¿Qué espera visualizar?, ¿Es correcto este resultado ?
-
-se espera visualizar los datos almacendos en el archivo image.men  el cual conforma  lineas veritcales de colores ( Blanco FF  Rojo E0,Verde 1, Azul 03) efectivaente como se uestra a continuacion
-
-![Specifications](./figs/foto3.png)
-
-![Specifications](./figs/foto2.png)
-
-
-3. Configure la cámara en test por medio del bus I2C con ayuda de Arduino. ¿Es correcto el resultado? ¿Cada cuánto se refresca el buffer de memoria ?
-
- en la inforacion de la camara ov7670 se detalla que es capaz de enviar 30 cuadros por segundo y ddepndiendo del tamaño este sera mas rapido  o lento, para una configuracion de tamaño 320 x240 pixeles esta termina un frame cada 33.3 ms ya que la cámara termina de completar  76.800 pixeles. 
-
-4. ¿Qué falta implementar para tener el control de la toma de fotos ?
-
-un boton que permita controlar cuando se caprura una sola fotografia
 
 
 Para pasar de formato RGB332 a RGB 444 para ser usado por la pantalla VGA. Para hacer dicha conversión se añadieron ceros en las cifras menos significativas faltantes, es decir, para el rojo y el verde sólo se agregó un cero para completar los 4 y en el azul dos ceros.
@@ -186,6 +158,34 @@ La cámara OV7670 genera 16 bits de datos de píxeles el cual  generar 8 de esos
 EL muestreo de  datos en el flanco de subida del reloj de la cámara. El formato de 16 bits de los datos de píxeles de la cámara es RGB565. Esto simplemente significa que los primeros 5 bits de los datos de píxeles de 16 bits son el valor del rojo, los siguientes 6 bits son el valor del verde y los últimos 5 bits son el valor del azul. Sin embargo, solo podemos almacenar 8 bits de datos de píxeles en nuestra RAM. 
 Hicimos esto leyendo los dos bytes de datos de la cámara. Luego asignamos los bits apropiados del formato RGB 565 al formato RGB 332. Por ejemplo, los tres bits rojos de RGB 332 se toman de los primeros tres bits del primer byte de RGB 565. Los 3 bits verdes de RGB 332 se toman de los últimos tres bits del primer byte de RGB 565. Los 2 azules Los bits de RGB 332 se toman de los últimos dos bits del segundo byte de RGB 565. Después de reducir los datos, escribimos los datos de 8 bits en la RAM. Solo escribimos los datos de 8 bits después de leer los dos bytes completos de datos de la cámara.
 
+### Implementación 
+
+Al culminar los hitos anteriores deben:
+
+1. Crear el archivo UCF.
+
+para la implementacion del archivo UCF se tuvo encuenta  las variables declaras para entraada y salida en el test_cam.v tales como: la señales del reloj clk y rst. se define CAM_PCLK como señal de entrada, se activa los puertos VGA, y las entradas de la camara en los  puertos pmode Header de la FPGA 
+
+
+
+Se declararan las salidas del puerto VGA: los puertos para el pixel; que son 12 debido a que la pantalla recibe formato RGB 444; otro puerto para VGA_Hsync_n y otro para VGA_Vsync_n. 
+
+2. Realizar el test de la pantalla. Programar la FPGA con el bitstream del proyecto y no conectar la cámara. ¿Qué espera visualizar?, ¿Es correcto este resultado ?
+
+se espera visualizar los datos almacendos en el archivo image.men  el cual conforma  lineas veritcales de colores ( Blanco FF  Rojo E0,Verde 1, Azul 03) efectivaente como se uestra a continuacion
+
+![Specifications](./figs/foto3.png)
+
+![Specifications](./figs/foto2.png)
+
+
+3. Configure la cámara en test por medio del bus I2C con ayuda de Arduino. ¿Es correcto el resultado? ¿Cada cuánto se refresca el buffer de memoria ?
+
+ en la inforacion de la camara ov7670 se detalla que es capaz de enviar 30 cuadros por segundo y ddepndiendo del tamaño este sera mas rapido  o lento, para una configuracion de tamaño 320 x240 pixeles esta termina un frame cada 33.3 ms ya que la cámara termina de completar  76.800 pixeles. 
+
+4. ¿Qué falta implementar para tener el control de la toma de fotos ?
+
+un boton que permita controlar cuando se caprura una sola fotografia
 
 
 
