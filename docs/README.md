@@ -113,8 +113,13 @@ posY [9:0]: Posición vertical del pixel siguiente
 
 
 clk24_25 (CLK_32MHZ_to_25M_24M.v)
+ENTRADAS:
 
+Reloj 100Mhz: reloj interno Nexys4
+SALIDAS:
 
+Reloj 24Mhz:reloj para sincronizar la camara 
+Reloj 25Mhz:Señal de reloj para sincronizar l vga
 acontinuacion se uestra el poceso para la genracion del archivo clk_32MHZ_to_25M_24M.v´
 
 1) en n el IDE de ISE debe utilizar tools -> Core Generator buscar clocking wizard.
