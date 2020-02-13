@@ -42,10 +42,15 @@ comprende en una maquina de estados finita  la  cual recoje  los datos que provi
 
 
 rst: Reinicia la captura de datos.
+
 pclk: Señal PCLKde la camara . 
+
 href: Señal HREF de la camara , indica la trasmision de una línea de pixeles.
+
 vsync: Señal VSYNC de la camara de la senal para que empiece a trasmitir a al modulo de captura
+
 px_data [7:0]:  (D[7:0]). informacion de colores 
+
 b_captura: controla la captura de fotografias 
 
 Salidas:
@@ -64,13 +69,81 @@ modulo de lectura y escrutura de  memoria de  Ancho de pixel: 8 bit. Cantidad de
 ENTRADAS:
 
 DP_RAM_regW: senal para activar o desactivar registro
+
 DP_RAM_addr_in: direccion de entrada que viene de modulo de captura, da la posición de la memoria 
+
 DP_RAM_data_in: Señal que proviene del modula de captura en forma de un byte y representa un pixel.
+
 DP_RAM_addr_out:  indica que direccióndel pixel se va a leer.
+
 Reloj 24Mhz: reloj de escritura sincroniza con la camara 
+
 Reloj 25Mhz: reloj de lectura que sincroniza con la vga
+
+
 **diagrama de flujo buffer_ram_dp.v)**
 ![DIAGRAMA](./figs/bufer.png)
+
+
+
+**VGA driver(VGA_driver.v)**
+
+permite mostrar los datos guardados en el buffer_ram_dp 
+
+Entradas:
+
+rst: reset de todo el sistema
+
+clk: Reloj de creado en la fpga de 25 MHz sincroniza datos con la ram
+
+pixelIn [7:0]: pixeles de la ram
+
+Salida:
+
+pixelOut [7:0]: Píxels de salida
+
+Hsync_n: senales de sincronización horizontal negada
+
+Vsync_n: Senales de sincronización vertical negada 
+
+posX [9:0]: Posición horizontal del pixel siguiente
+
+posY [9:0]: Posición vertical del pixel siguiente
+
+
+
+clk24_25 (CLK_32MHZ_to_25M_24M.v)
+
+
+acontinuacion se uestra el poceso para la genracion del archivo clk_32MHZ_to_25M_24M.v´
+
+1) en n el IDE de ISE debe utilizar tools -> Core Generator buscar clocking wizard.
+en la priera pagina desplegada cabiamos unicamente en source a global clock 
+
+![Specifications](./figs/clock1.png)
+
+
+![Specifications](./figs/clock2.png)
+
+
+2. en la segunda pagina creamos las señales de 24 y 25  MHz
+
+![Specifications](./figs/clock3.png)
+
+3) en las siguientes ventanas solo damos siguiente
+
+
+![Specifications](./figs/clock4.png)
+
+
+4) damos click en generar y se crea las señales del reloj el cual replazaos en la carpeta PLL
+
+![Specifications](./figs/clock5.png)
+
+
+
+![Specifications](./figs/2.PNG)
+
 
 **CAPTURA DATOS.**
 ![DIAGRAMA](./figs/cajacapturadatos2.PNG)
