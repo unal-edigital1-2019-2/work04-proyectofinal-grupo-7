@@ -30,3 +30,4 @@ Para pasar de formato RGB332 a RGB 444 para ser usado por la pantalla VGA. Para 
 
 
 
+
