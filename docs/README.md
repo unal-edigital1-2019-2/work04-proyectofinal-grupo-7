@@ -29,3 +29,4 @@ Para pasar de formato RGB332 a RGB 444 para ser usado por la pantalla VGA. Para 
 ![DIAGRAMA](./figs/convRGB332A444.png)
 
 
+
