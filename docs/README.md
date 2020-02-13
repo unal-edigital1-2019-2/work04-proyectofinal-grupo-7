@@ -24,3 +24,4 @@ Instanciación salida VGA.
 Mediante la siguiente lógica se obtuvo DP_RAM_addr_out, teniendo en cuenta la posición del pixel en pantalla, en el primer condicional se calcula la última posición y en el segundo se da la posición de la dirección de salida.
 
 ![DIAGRAMA](./figs/LOGPIXPAN.png)
+
