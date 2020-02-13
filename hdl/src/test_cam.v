@@ -109,9 +109,9 @@ assign CAM_reset=  0;
 //assign clk32M =clk;
 clk24_25_nexys4
   clk25_24(
-  .CLK_IN1(clk),
-  .CLK_OUT1(clk25M),
-  .CLK_OUT2(clk24M),
+  .CLK_IN1(clk),//Reloj a 100MHZ
+  .CLK_OUT1(clk25M),// Reloj de Pantalla
+  .CLK_OUT2(clk24M),// Reloj de la camara
   .RESET(rst)
  );
 
