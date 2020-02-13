@@ -69,7 +69,8 @@ DP_RAM_data_in: Señal que proviene del modula de captura en forma de un byte y 
 DP_RAM_addr_out:  indica que direccióndel pixel se va a leer.
 Reloj 24Mhz: reloj de escritura sincroniza con la camara 
 Reloj 25Mhz: reloj de lectura que sincroniza con la vga
-
+**diagrama de flujo buffer_ram_dp.v)**
+![DIAGRAMA](./figs/bufer.png)
 
 **CAPTURA DATOS.**
 ![DIAGRAMA](./figs/cajacapturadatos2.PNG)
