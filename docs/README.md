@@ -25,3 +25,7 @@ Mediante la siguiente lógica se obtuvo DP_RAM_addr_out, teniendo en cuenta la p
 
 ![DIAGRAMA](./figs/LOGPIXPAN.png)
 
+Para pasar de formato RGB332 a RGB 444 para ser usado por la pantalla VGA. Para hacer dicha conversión se añadieron ceros en las cifras menos significativas faltantes, es decir, para el rojo y el verde sólo se agregó un cero para completar los 4 y en el azul dos ceros.
+![DIAGRAMA](./figs/convRGB332A444.png)
+
+
