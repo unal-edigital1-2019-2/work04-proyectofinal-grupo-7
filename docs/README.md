@@ -21,3 +21,4 @@ en donde se tiene como entradas de la camara (.pclk,rst, vsync, href, px_data, b
 Instanciación salida VGA.
 ![DIAGRAMA](./figs/INSVGA.png)
 
+
