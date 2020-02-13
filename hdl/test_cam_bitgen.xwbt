@@ -1,0 +1,8 @@
+INTSTYLE=ise
+INFILE=/home/hp/Escritorio/digital/prueba/4.PW4/work04-proyectofinal-grupo-7-master/hdl/test_cam.ncd
+OUTFILE=/home/hp/Escritorio/digital/prueba/4.PW4/work04-proyectofinal-grupo-7-master/hdl/test_cam.bit
+FAMILY=Artix7
+PART=xc7a100t-3csg324
+WORKINGDIR=/home/hp/Escritorio/digital/prueba/4.PW4/work04-proyectofinal-grupo-7-master/hdl
+LICENSE=WebPack
+USER_INFO=__0_0_0
