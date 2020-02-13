@@ -18,3 +18,7 @@ Se instanciaron los modulos de entrada y salidas del cam_read.v, partiendo del p
 
 en donde se tiene como entradas de la camara (.pclk,rst, vsync, href, px_data, b_captura) y como salidas del modulo **tes_cam.v**  (mem_px_addr, mem_px_data, px_wr).
 
+Instanciación salida VGA.
+![DIAGRAMA](./figs/INSVGA.png)
+
+
