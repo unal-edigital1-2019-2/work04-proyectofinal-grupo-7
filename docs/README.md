@@ -56,10 +56,22 @@ px_wr:  indica si se escribe o no el valor almacenado en mem_px_data en la direc
 
 
 
+**DP_RAM(buffer_ram_dp.v)**
+
+modulo de lectura y escrutura de  memoria de  Ancho de pixel: 8 bit. Cantidad de pixel: 2^17 
 
 
+ENTRADAS:
 
-**CAPTURADATOS.**
+DP_RAM_regW: senal para activar o desactivar registro
+DP_RAM_addr_in: direccion de entrada que viene de modulo de captura, da la posición de la memoria 
+DP_RAM_data_in: Señal que proviene del modula de captura en forma de un byte y representa un pixel.
+DP_RAM_addr_out:  indica que direccióndel pixel se va a leer.
+Reloj 24Mhz: reloj de escritura sincroniza con la camara 
+Reloj 25Mhz: reloj de lectura que sincroniza con la vga
+
+
+**CAPTURA DATOS.**
 ![DIAGRAMA](./figs/cajacapturadatos2.PNG)
 La cámara OV7670 genera 16 bits de datos de píxeles el cual  generar 8 de esos 16 bits durante un ciclo de reloj,  por lo que se necesitan dos ciclos para leer completamente los datos de píxeles. 
 EL muestreo de  datos en el flanco de subida del reloj de la cámara. El formato de 16 bits de los datos de píxeles de la cámara es RGB565. Esto simplemente significa que los primeros 5 bits de los datos de píxeles de 16 bits son el valor del rojo, los siguientes 6 bits son el valor del verde y los últimos 5 bits son el valor del azul. Sin embargo, solo podemos almacenar 8 bits de datos de píxeles en nuestra RAM. 
